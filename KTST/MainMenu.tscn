@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://main_menu.gd" type="Script" id=1]
+[ext_resource path="res://game_state.gd" type="Script" id=2]
+[ext_resource path="res://networking.gd" type="Script" id=3]
+
+[node name="Networking" type="Node"]
+script = ExtResource( 3 )
+
+[node name="GameState" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="MainMenu" type="Control" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConnectBtn" type="Button" parent="MainMenu"]
+margin_left = 231.0
+margin_top = 163.0
+margin_right = 754.0
+margin_bottom = 357.0
+text = "Connect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DisconnectBtn" type="Button" parent="MainMenu"]
+margin_left = 393.0
+margin_top = 383.0
+margin_right = 594.0
+margin_bottom = 475.0
+disabled = true
+text = "Disconnect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MainMenu/ConnectBtn" to="." method="_on_ConnectBtn_pressed"]
+[connection signal="pressed" from="MainMenu/DisconnectBtn" to="." method="_on_DisconnectBtn_pressed"]
